@@ -1,0 +1,6 @@
+{
+  "name": "MIKSHAF",
+  "description": "تطبيق مكشاف للتحقق من أصالة الصور وكشف التزييف والتوليد بالذكاء الاصطناعي",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

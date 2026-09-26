@@ -1,0 +1,149 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-heading: 'Alexandria', 'IBM Plex Sans Arabic', sans-serif;
+    --font-sans: 'IBM Plex Sans Arabic', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #0B0E14;
+    color: #E2E8F0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    letter-spacing: normal;
+  }
+}
+
+/* Typography Helpers - Never apply letter-spacing on Arabic cursive script */
+.font-serif-vintage {
+  font-family: 'Alexandria', 'IBM Plex Sans Arabic', sans-serif;
+  letter-spacing: normal;
+}
+
+.font-sans-body {
+  font-family: 'IBM Plex Sans Arabic', -apple-system, BlinkMacSystemFont, sans-serif;
+  letter-spacing: normal;
+}
+
+.font-mono-dossier {
+  font-family: 'JetBrains Mono', monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Modern Minimalist SaaS Panels */
+.forensic-panel {
+  background-color: #121622;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+  position: relative;
+  border-radius: 1rem;
+}
+
+.forensic-panel-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  background-color: rgba(255, 255, 255, 0.015);
+}
+
+/* Physical Screen Micro-Shake Trigger */
+@keyframes forensic-micro-shake {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(-1.5px, 1px); }
+  50% { transform: translate(1.5px, -1px); }
+  75% { transform: translate(-1px, -1px); }
+  100% { transform: translate(0, 0); }
+}
+
+.animate-forensic-shake {
+  animation: forensic-micro-shake 0.12s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+/* Clean Modern Stamp Aesthetics */
+.rubber-stamp-physical {
+  display: inline-block;
+  font-family: 'Alexandria', 'IBM Plex Sans Arabic', sans-serif;
+  font-weight: 800;
+  padding: 0.5rem 1.25rem;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 0.75rem;
+  user-select: none;
+}
+
+/* Mobile & Drag Sliders */
+.no-touch-jitter {
+  touch-action: none;
+}
+
+/* Print Dossier Certificate Formatting */
+@media print {
+  @page {
+    size: A4;
+    margin: 12mm 15mm;
+  }
+
+  body {
+    background: #FFFFFF !important;
+    color: #0F172A !important;
+    font-size: 11pt !important;
+  }
+
+  .no-print,
+  .no-print-backdrop,
+  header,
+  footer,
+  button,
+  nav {
+    display: none !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  /* Transform dark theme panels into clean print-ready cards */
+  .bg-\[\#121622\],
+  .bg-\[\#0B0E14\],
+  .bg-\[\#0E121C\],
+  .bg-\[\#111622\] {
+    background-color: #FFFFFF !important;
+    color: #0F172A !important;
+    border-color: #CBD5E1 !important;
+    box-shadow: none !important;
+  }
+
+  /* Text color fixes for print */
+  .text-white,
+  .text-slate-100,
+  .text-slate-200,
+  .text-slate-300,
+  .text-slate-400 {
+    color: #1E293B !important;
+  }
+
+  .text-amber-400,
+  .text-amber-500 {
+    color: #B45309 !important;
+  }
+
+  .border-white\/5,
+  .border-white\/10 {
+    border-color: #E2E8F0 !important;
+  }
+
+  /* Prevent awkward page cutoffs */
+  .break-inside-avoid,
+  .rounded-2xl,
+  .rounded-xl {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}
+
